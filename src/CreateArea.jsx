@@ -1,18 +1,16 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { QuotesContext } from "./quotesContext";
 
 function CreateArea() {
-  const { addQuote } = useContext(QuotesContext);
-  const [newQuote, setNewQuote] = useState("");
+  const { addQuote, newQuote, changeInput } = useContext(QuotesContext);
 
   const changeHandler = (event) => {
-    setNewQuote(event.target.value);
+    changeInput(event);
   };
 
   const submitQuote = (event) => {
     event.preventDefault();
     addQuote(newQuote);
-    setNewQuote("");
   };
 
   return (
